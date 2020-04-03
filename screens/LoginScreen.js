@@ -5,7 +5,8 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert
+  Alert,
+  Keyboard,TouchableWithoutFeedback
 } from 'react-native';
 import {globalStyles} from '../styles/global'
 import * as firebase from 'firebase';
@@ -28,8 +29,9 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
+      <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
       <View style={globalStyles.container}>
-        <Text style={globalStyles.hello}>{'Hello again\nWelcome back'}</Text>
+        <Text style={globalStyles.hello}>{'Hello again,Welcome back'}</Text>
 
         {/* <View style={globalStyles.errmsg}>
           {this.state.errorMessage && (
@@ -71,6 +73,7 @@ export default class LoginScreen extends Component {
           </Text>
         </TouchableOpacity>
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

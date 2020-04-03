@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
-  TouchableOpacity,Alert
+  TouchableOpacity,Alert,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 import {globalStyles} from '../styles/global'
 import * as firebase from 'firebase';
@@ -28,6 +29,7 @@ export default class ForgetScreen extends Component {
 
   render() {
     return (
+      <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
       <View style={globalStyles.container}>
         <Text style={globalStyles.hello}>{'Wanna reset your\nPASSWORD'}</Text>
 
@@ -64,6 +66,7 @@ export default class ForgetScreen extends Component {
           </Text>
         </TouchableOpacity>
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

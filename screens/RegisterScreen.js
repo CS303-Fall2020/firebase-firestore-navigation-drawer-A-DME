@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
+  
   TextInput,
   TouchableOpacity,
   Alert,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 import {globalStyles} from '../styles/global'
 import * as firebase from 'firebase';
@@ -35,8 +37,9 @@ export default class RegisterScreen extends Component {
 
   render() {
     return (
+      <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
       <View style={globalStyles.container}>
-        <Text style={globalStyles.hello}>{'Hello\nSign up to get started'}</Text>
+        <Text style={globalStyles.hello}>{'Sign up to get started'}</Text>
 
         {/* <View style={globalStyles.errmsg}>
           {this.state.errorMessage && (
@@ -95,6 +98,7 @@ export default class RegisterScreen extends Component {
           </Text>
         </TouchableOpacity>
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
